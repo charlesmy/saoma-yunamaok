@@ -1,0 +1,117 @@
+/* pages/project/edit/edit.wxss */
+page {
+
+}
+.form__wrp {
+  padding: 10rpx 0;
+}
+.cell__wrp {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 16rpx;
+}
+.label {
+  min-width: 86rpx;
+  text-align: center;
+}
+.font-label {
+  font-weight: 500;
+  color: #888;
+}
+.label .iconfont {
+  font-size: 86rpx;
+  color: #0b81cc;
+}
+.value__wrp {
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  flex: 1;
+  height: 86rpx;
+  display: flex;
+}
+.value__wrp input {
+  padding: 0 .6em;
+  height: 100%;
+  width: 100%;
+}
+.value__wrp picker, .value__wrp .picker {
+  padding: 0 .6em;
+  flex: 1;
+  overflow: hidden;
+}
+.picker-content {
+  height: 82rpx;
+  line-height: 82rpx;
+}
+.picker-content.placeholder {
+  color: #888;
+}
+.value__wrp.font-value {
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
+.radio {
+  display: flex;
+  align-items: center;
+}
+.radio + .radio{
+  margin-left: 2em;
+}
+.cell__wrp.font-cell {
+  border: 0 solid #ccc;
+  border-top-width: 2rpx;
+  border-bottom-width: 2rpx;
+}
+.cell__wrp.font-cell + .font-cell {
+  border-top-width: 0;
+}
+.value__wrp.textarea-value {
+  height: unset;
+}
+.value__wrp .textarea {
+  padding: 12rpx;
+  height: 8em;
+}
+/*  */
+.submit__wrp {
+  margin: 180rpx 0 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+.confirm, .cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300rpx;
+  height: 82rpx;
+  border-radius: 10rpx;
+  letter-spacing: 2rpx;
+  font-weight: 500;
+}
+.confirm {
+  background: #0b81cc;
+  color: #fff;
+}
+.cancel {
+  background: #808080;
+  color: #fff;
+}
+/*  */
+.hovercls {
+  
+  position: relative;
+  overflow: hidden;
+}
+.hovercls::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300rpx;
+  height: 82rpx;
+  background: rgba(0, 0, 0, .15);
+}

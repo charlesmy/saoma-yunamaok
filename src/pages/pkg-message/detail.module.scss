@@ -1,0 +1,31 @@
+.page {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+  
+.box {
+    padding: 12px 16px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+.title {
+    font-size: 16px;
+    color: #000;
+}
+
+.content {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #666;
+}
+
+.time {
+    margin-top: 4px;
+    font-size: 10px;
+    color: #afb8c7;
+    text-align: right;
+}

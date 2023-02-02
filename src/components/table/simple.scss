@@ -1,0 +1,36 @@
+/** @format */
+
+.simple-table {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.simple-table__row {
+    box-sizing: border-box;
+    display: flex;
+    width: 50%;
+}
+
+.simple-table__column {
+    min-height: 30px;
+    padding: 6px 0;
+}
+
+.simple-table__label {
+    width: 50%;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+.simple-table__value {
+    width: 50%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}

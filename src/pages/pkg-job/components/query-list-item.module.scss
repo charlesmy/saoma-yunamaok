@@ -1,0 +1,88 @@
+
+.container {
+    background-color: #fff;
+    border-bottom: 1px solid rgb(210, 206, 206);
+}
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 12px;
+    font-size:10px; 
+    color:rgb(169, 169, 169);
+}
+
+.descMore {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
+
+.left {
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.right {
+    flex: 1;
+    width: 0;
+}
+
+.icon {
+    width: 60px;
+    height: 70px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.col {
+    flex: 1;
+}
+
+.title {
+    font-size:14px; 
+    color:rgba(30, 142, 225, 1);
+}
+
+.count {
+    font-size:12px; 
+    color:rgba(30, 142, 225, 1);
+}
+
+.money {
+    font-size:12px; 
+    color:rgba(185, 148, 32, 1);
+}
+
+.box :global(.nut-table) {
+    display: block;
+    width: auto;
+    overflow-x: scroll;
+}
+
+.box :global(.nut-table__main) {
+    width: 134%;
+}
+
+.box :global(.nut-table__main__head__tr) {
+    background: rgb(242, 236, 236);
+}
+
+.box :global(.nut-table__main__head__tr__th),
+.box :global(.nut-table__main__body__tr__td) {
+    padding: 4px 10px;
+    font-size: 12px;
+    color:rgb(169, 169, 169);
+    border-bottom: 1px solid #ececec;
+}
+
+.box :global(.nut-table__main__head__tr__th) {
+    color: #000;
+}

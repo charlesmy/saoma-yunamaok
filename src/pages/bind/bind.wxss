@@ -1,0 +1,74 @@
+/* pages/bind/bind.wxss */
+page {
+
+}
+.form__wrp {
+  padding: 0 36rpx;
+}
+.title {
+  margin: 80rpx 0 100rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #808080;
+}
+.cell {
+  display: flex;
+  align-items: center;
+}
+.cell + .cell {
+  margin-top: 48rpx;
+}
+.label {
+  font-weight: bold;
+  color: #333;
+}
+.value-input {
+  flex: 1;
+  height: 82rpx;
+  line-height: 82rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  margin-left: 24rpx;
+  padding: 0 .6em;
+}
+/*  */
+.submit__wrp {
+  margin: 180rpx 0 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+.confirm, .cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300rpx;
+  height: 82rpx;
+  border-radius: 10rpx;
+  letter-spacing: 2rpx;
+  font-weight: 500;
+}
+.confirm {
+  background: #0b81cc;
+  color: #fff;
+}
+.cancel {
+  background: #808080;
+  color: #fff;
+}
+/*  */
+.hovercls {
+  
+  position: relative;
+  overflow: hidden;
+}
+.hovercls::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300rpx;
+  height: 82rpx;
+  background: rgba(0, 0, 0, .15);
+}

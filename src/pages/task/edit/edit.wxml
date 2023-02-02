@@ -1,0 +1,128 @@
+<!--pages/task/edit/edit.wxml-->
+<view>
+  <view class="row__wrp">
+    <view class="picker">
+      <picker bindchange="projectPickerChange" mode="selector" value="{{projectListIdx}}" range="{{projectList}}"
+        range-key="name" header-text="负责人">
+        <view class="picker-content {{projectListIdx>=0?'':'placeholder'}}">
+          {{projectList[projectListIdx].name || '项目名称'}}
+        </view>
+      </picker>
+      <text class="iconfont icon-arrow-down arrowdown"></text>
+    </view>
+    <view bindtap="toCreateProject" class="to-btn">没有项目？去新建</view>
+  </view>
+  <view class="row__wrp">
+    <view class="input__wrp">
+      <input value="{{form.name}}" data-key="name" bindinput="inputController" placeholder="任务标题" type="text" />
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+  </view>
+  <view class="row__wrp">
+    <view class="input__wrp col-1">
+      <input value="{{form.client_ordernum}}" data-key="client_ordernum" bindinput="inputController" placeholder="订单号"
+        type="text" />
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+    <view class="input__wrp">
+      <input value="{{form.order_quantity}}" data-key="order_quantity" bindtap="tapMaterialPicker" bindinput="inputController" placeholder="关联物料"
+        type="number" /><text class="iconfont icon-arrow-down arrowdown"></text>
+    </view>
+    <view class="input__wrp" style="display: none;">
+      <input value="{{form.process_price}}" data-key="process_price" bindinput="inputController" placeholder="单价：元"
+        type="digit" />
+    </view>
+  </view>
+  <view class="row__wrp">
+    <view class="picker">
+      <picker bindchange="executePickerChange" mode="selector" value="{{execute_uidIdx}}" range="{{taskUser}}"
+        range-key="nick" header-text="执行人">
+        <view class="picker-content {{execute_uidIdx>=0?'':'placeholder'}}">
+          {{taskUser[execute_uidIdx].nick || '执行人'}}
+        </view>
+      </picker>
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+    <view class="user-picker">
+      <view bindtap="tapUserPicker" class="picker-content {{join_admin_nicks?'':'placeholder'}}">
+        {{join_admin_nicks || '知会人/协助人'}}
+      </view>
+      <text class="iconfont icon-arrow-down arrowdown"></text>
+    </view>
+  </view>
+</view>
+<view class="content__wrp">
+  <textarea bindinput="textareaInput" value="{{form.content}}" data-key="textarea" placeholder="任务描述" focus="{{areafocus}}" name="textarea" class="textarea" />
+</view>
+<view class="priority__wrp">
+  <text>重要性：</text>
+  <view class="checkbox">
+    <view class="row">
+      <label bindtap="checkController" data-key="priority" data-value="2" class="radio">
+        <radio value="2" checked="{{form.priority==2}}" color="#0b81cc">
+          <text class="iconfont icon-task-filling priority1"></text>
+          <text space="emsp">一般 </text>
+        </radio>
+      </label>
+      <label bindtap="checkController" data-key="priority" data-value="4" class="radio">
+        <radio value="4" checked="{{form.priority==4}}" color="#0b81cc">
+          <text class="iconfont icon-task-filling priority3"></text>
+          <text space="emsp">重要 </text>
+        </radio>
+      </label>
+    </view>
+    <!-- <view class="row">
+      <label class="radio">
+        <radio value="r1" checked="true" color="#0b81cc">
+          <text class="iconfont icon-task-filling priority3"></text>
+          <text space="emsp">重要</text>
+        </radio>
+      </label>
+      <label class="radio">
+        <radio value="r1" checked="true" color="#0b81cc">
+          <text class="iconfont icon-task-filling priority4"></text>
+          <text space="emsp">驳回 </text>
+        </radio>
+      </label>
+    </view> -->
+  </view>
+</view>
+<view class="notice_open__wrp">
+  <text space="emsp">通知：</text>
+  <view class="checkbox">
+    <view class="row">
+      <label bindtap="checkController" data-key="notice_open" data-value="1" class="radio">
+        <radio value="1" checked="{{form.notice_open==1}}" color="#0b81cc">
+          <text class="iconfont icon-tongzhi"></text>
+          <text space="emsp">完成后通知我</text>
+        </radio>
+      </label>
+      <label bindtap="checkController" data-key="notice_open" data-value="2" class="radio">
+        <radio value="2" checked="{{form.notice_open==2}}" color="#0b81cc">
+          <text class="iconfont icon-Notice"></text>
+          <text space="emsp">不通知我 </text>
+        </radio>
+      </label>
+    </view>
+  </view>
+</view>
+
+<view class="pic__wrp">
+  <block>
+    <view wx:if="{{tempFilePaths.length}}" class="img__wrp">
+      <image wx:for="{{tempFilePaths}}" src="{{item}}" class="img" mode="aspectFill"></image>
+    </view>
+    <view wx:else class="pic-tip">上传照片</view>
+  </block>
+  <view class="pic-btn__wrp">
+    <view bindtap="choosePic" class="pic-btn">上传</view>
+    <!-- <view class="pic-btn">拍照</view> -->
+  </view>
+</view>
+
+<view class="submit__wrp">
+  <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">取消</view>
+  <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">确定</view>
+</view>
+<material-picker wx:if="{{isShowMaterial}}" value="{{form.join_admin_ids}}" list="{{orderMaterials}}" bindconfirm="userMaterialConfirm" bindcancel="userPickerCancel"></material-picker>
+<user-picker wx:if="{{isShowUserPicker}}" value="{{form.join_admin_ids}}" list="{{taskUser}}" bindconfirm="userPickerConfirm" bindcancel="userPickerCancel"></user-picker>

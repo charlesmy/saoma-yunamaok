@@ -1,0 +1,52 @@
+/* pages/task/notice/notice.wxss */
+.item__wrp {
+  display: flex;
+  align-items: stretch;
+  background: #f7f2f2;
+  padding: 10rpx 0;
+}
+.item__wrp + .item__wrp {
+  margin-top: 16rpx;
+}
+.icon {
+  flex: 0 0 135rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon .iconfont {
+  font-size: 80rpx;
+  color: rgb(23, 135, 210);
+}
+.icon .iconfont.yellow {
+  color: rgb(215, 160, 13);
+}
+.info {
+  flex: 1;
+}
+.title__wrp {
+  display: flex;
+  flex-direction: column;
+}
+.read1{color: #999999;}
+.title {
+  font-weight: bold;
+  font-size: 32rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.date {
+  padding-right: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 400;
+}
+.desc {
+  padding: 8rpx 10rpx 0 0;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 34rpx;
+  min-height: 56rpx;
+}
+/*  */

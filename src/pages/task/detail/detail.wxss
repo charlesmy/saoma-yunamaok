@@ -1,0 +1,269 @@
+/* pages/task/detail/detail.wxss */
+@import "../edit/edit.wxss";
+.tab__wrp {
+  flex: 1;
+  padding: 10rpx 20rpx 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.textarea1{
+    padding: 16rpx;
+    width: 100%;
+    height: 130rpx;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+.tab__item {
+  padding: 8rpx 20rpx;
+  color: #666;
+  font-size: 30rpx;
+  font-weight: 500;
+  transition: all .15s;
+  background: #eee;
+  border-radius: 8rpx;
+  min-width: 4em;
+  text-align: center;
+}
+.tab__item.selected {
+  color: #fff;
+  background: #6d77f2;
+}
+/*  */
+.comments__wrp {
+  padding: 20rpx;
+  background: #eee;
+}
+.weui-cell_select{display: flex; margin: 10rpx 35rpx 45rpx;font-size: 32rpx;background:#eee;height:68rpx;    line-height: 68rpx;}
+.weui-select::after {
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #0b81cc;
+  border-style: solid;
+  -webkit-transform: matrix(.71,.71,-.71,.71,0,0);
+  transform: matrix(.71,.71,-.71,.71,0,0);
+  position: relative;
+  top: -2px;
+  top: 50%;right:-10rpx;
+  margin-top: -4px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+}
+.weui-cell__hd{
+  flex: 0 0 48%;text-align: right;
+}
+.weui-cell__bd {
+  flex: 0 0 45%;text-align:center;
+}
+
+.comments {
+  /*height: 250rpx;*/
+  padding-bottom:80rpx;
+}
+.msg__wrp {
+  display: flex;
+  align-items: center;
+  --comment-height: 68rpx;
+}
+.msg__wrp + .msg__wrp {
+  margin-top: 12rpx;
+}
+.avatar {
+  width: var(--comment-height);
+  height: var(--comment-height);
+  border-radius: 10rpx;
+  margin-right: 12rpx;
+}
+.msg {
+  padding: 0 16rpx;
+  height: var(--comment-height);
+  line-height: var(--comment-height);
+  background: #8dfa69;
+  border-radius: 8rpx;
+}
+.send {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.send input {
+  padding: 0 10rpx;
+  flex: 1;
+  height: 68rpx;
+  background: #fff;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+}
+.send .btn {
+  margin-left: 20rpx;
+  height: 68rpx;
+  border-radius: 12rpx;
+  flex: 0 0 120rpx;
+  color: #fff;
+  background: #169ef4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 日志 */
+.time-log__wrp {
+  padding: 20rpx 0;
+}
+
+.t__item .icon-shizhongfill {
+  font-size: 48rpx;
+  color: #0b81cc;
+}
+.t__row1, .t__row2, .t__row3 {
+  display: flex;
+  align-items: center;
+}
+.t__row1 .t__left, .t__row2 .t__left, .t__row3 .t__left {
+  flex: 0 0 152rpx;
+  /* background: #ccc; */
+  color: #666;
+  font-size: 28rpx;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.t__row1 .t__center {
+  flex: 0 0 48rpx;
+  height: 48rpx;
+}
+.t__row1 .t__right {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.t__row2 .t__center, .t__row3 .t__center {
+  padding: 4rpx 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex: 0 0 48rpx;
+  height: 40rpx;
+}
+.t__row2 .t__center .line {
+  border: 0rpx dotted #807e7e;
+  border-left-width: 4rpx;
+  /* border-right-width: 2rpx; */
+}
+.t__row2 .t__right {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.t__item .icon-edit-square {
+  font-size: 36rpx;
+  color: #0b81cc;
+}
+.t__row3 {
+  align-items: flex-start;
+  line-height: 36rpx;
+}
+.t__row3 .t__right {
+  padding: 0 20rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.cancel, .confirm {
+  width: auto;
+  flex: 1;
+  margin: 0 32rpx;
+}
+/*  */
+.reality__wrp {
+  margin: 30rpx 0;
+}
+.r-input__wrp {
+  display: flex;
+}
+.r-lable {
+  padding: 0 10rpx 10rpx;
+  font-size: 32rpx;
+  color: #0b81cc;
+  font-weight: bold;
+}
+.r-input {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  line-height: 68rpx;
+  background: #eee;
+}
+.r-input + .r-input {
+  border-left: 2rpx solid #bbb;
+}
+.r-input text {
+  padding: 0 10rpx;
+  font-size: 28rpx;
+}
+.r-input input {
+  flex: 1;
+  height: 68rpx;
+}
+.del {
+  color: red;
+  font-size: 28rpx;
+}
+.cmm__wrp {
+  margin: 9rpx 0 2rpx 72rpx;
+  text-align: left;
+  color: #999;
+  font-size: 26rpx;
+}
+
+/* 设置背景遮罩层样式 */
+
+.b1 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   }
+   
+   /* 设置展示图片大小 */
+   
+   .b2 {
+    width: 60%;
+    height: 80%;
+   }
+   
+   /* 设置展示图片与关闭按钮图片的距离 */
+   
+   .t_w {
+    margin-top: 20rpx;
+   }
+   
+   /* 设置关闭按钮图片显示的大小 */
+   
+   .b2 image {
+    width: 100%;
+    height: 100%;
+   }
+   
+   /* 设置关闭按钮宽高 */
+   
+   .t_image {
+    width: 60rpx;
+    height: 60rpx;
+   }

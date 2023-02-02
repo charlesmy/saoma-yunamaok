@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "user-picker": "../../../components/user-picker/user-picker",
+    "material-picker": "../../../components/material-picker/material-picker"
+  },
+  "navigationBarTitleText": "新建任务"
+}

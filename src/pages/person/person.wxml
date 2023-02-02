@@ -1,0 +1,28 @@
+ <!--pages/person/person.wxml-->
+
+<view wx:if="{{profile.hasLogin}}" class="user__wrp">
+  <!-- <image mode="aspectFill" src="https://img1.baidu.com/it/u=3517333914,639949515&fm=26&fmt=auto"></image> -->
+  <text>{{profile.userInfo.realname}}</text>
+  <!-- <view bindtap="setting" class="setting">
+    <text class="iconfont icon-icon-test"></text>
+  </view> -->
+  <view bindtap="changeBing" class="change-bind">
+    <text><text class="iconfont icon-jiantou_zuoyouqiehuan"></text>切换绑定账号</text>
+  </view>
+</view>
+<view wx:else class="not-login">
+  <block wx:if="{{hasLogin}}">
+    <block wx:if="{{bindStatus}}">
+    </block>
+
+    <view wx:else class="login__wrp">
+      <text bindtap="bind">暂无数据，请先<text class="login">绑定</text>账号</text>
+    </view>
+  </block>
+  <view wx:else>
+    <view class="login__wrp">
+      <text bindtap="login">暂无数据，请先<text class="login">登录</text></text>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,34 @@
+<!--components/userPicker/user-picker.wxml-->
+<wxs module="U">
+function checkUser(str, id) {
+  if(!str) {
+    return false
+  }
+  str = str.split(',')
+  return str.some(function(item) {
+    return item==id
+  })
+}
+module.exports = {
+  checkUser: checkUser
+}
+</wxs>
+<view class="dialog__wrp">
+
+  <view class="header">
+    <text>选择协助人(可多选)</text>
+  </view>
+  <scroll-view scroll-y class="scroll">
+    <view class="body">
+      <block wx:for="{{list}}" wx:key="id">
+        <view bindtap="tapItem" data-item="{{item}}" class="item {{U.checkUser(curValue, item.id)?'choose':''}}">{{item.nick}}</view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="footer">
+    <view bindtap="cancel" class="cancel border-right">取消</view>
+    <view bindtap="confirm" class="confirm">确定</view>
+  </view>
+
+</view>
+<view class="blank"></view>

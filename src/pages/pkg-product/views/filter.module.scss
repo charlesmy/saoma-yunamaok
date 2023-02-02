@@ -1,0 +1,75 @@
+.item {
+    padding: 12px 0;
+    background-color: #fff;
+}
+
+.item :global(.segmented-control) {
+    height: 26px;
+}
+
+.oneLine {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.label {
+    font-size: 12px;
+    color: #888;
+}
+
+.select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    padding: 0 12px;
+    font-size: 12px;
+    color: #888;
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 6px;
+
+    &::after {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin-left: 4px;
+        content: '';
+        border-right: 1px solid #888;
+        border-bottom: 1px solid #888;
+        transform: rotateZ(45deg) translateY(-3px);
+    }
+}
+
+.mgr12 {
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+
+.mgt12 {
+    margin-top: 12px;
+}
+
+.selectDate {
+    display: inline-block;
+    height: 26px;
+    padding: 0 6px;
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 6px;
+}
+
+.tabItem {
+    flex: 1;
+    font-size: 12px;
+    line-height: 26px;
+    color: #888;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(220, 221, 223);
+}
+
+.line {
+    margin: 0 10px;
+    color: #888;
+}

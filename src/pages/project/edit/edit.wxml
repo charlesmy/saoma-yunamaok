@@ -1,0 +1,89 @@
+<!--pages/project/edit/edit.wxml-->
+<view class="form__wrp">
+  <view class="cell__wrp">
+    <view class="label">
+      <text class="iconfont icon-order_fill"></text>
+    </view>
+    <view class="value__wrp">
+      <input bindinput="inputName" type="text" placeholder="项目名称" />
+    </view>
+  </view>
+  <view class="cell__wrp">
+    <view class="label">
+      <text class="iconfont icon-people_fill"></text>
+    </view>
+    <view class="value__wrp">
+      <picker bindchange="ReviewPickerChange" mode="selector" value="{{taskUserIdx}}" range="{{taskUser}}"
+        range-key="nick" header-text="审批负责人">
+        <view class="picker-content {{taskUser[taskUserIdx]?'':'placeholder'}}">
+          {{taskUser[taskUserIdx].nick || '任务审批负责人'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="cell__wrp">
+    <view class="label">
+      <text class="iconfont icon-group_fill"></text>
+    </view>
+    <view class="value__wrp">
+      <view bindtap="tapUserPicker" class="picker">
+        <view class="picker-content {{managerUserNicks?'':'placeholder'}}">
+          {{managerUserNicks || '项目成员(可多选)'}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cell__wrp">
+    <view class="label">
+      <text class="iconfont icon-time_fill"></text>
+    </view>
+    <view class="value__wrp">
+      <picker bindchange="bindchangeDate" mode="date" value="{{form.starttime}}" fields="day" header-text="开始时间">
+        <view class="picker-content {{form.starttime?'':'placeholder'}}">
+          {{form.starttime || '开始时间'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view wx:if="{{jieduan==1}}" class="cell__wrp">
+    <view class="label">
+      <text class="iconfont icon-time_fill"></text>
+    </view>
+    <view class="value__wrp">
+      <picker bindchange="bindchangeDateEndTime" mode="date" value="{{form.endtime}}" fields="day" header-text="结束时间">
+        <view class="picker-content {{form.endtime?'':'placeholder'}}">
+          {{form.endtime || '结束时间'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="cell__wrp font-cell">
+    <view class="label">
+      <text class="font-label">阶段</text>
+    </view>
+    <view class="value__wrp font-value">
+      <label bindtap="tapJieduan" data-value="0" class="radio">
+        <radio checked="{{jieduan==0}}" color="#0b81cc" />长期
+      </label>
+      <label bindtap="tapJieduan" data-value="1" class="radio">
+        <radio checked="{{jieduan==1}}" color="#0b81cc" />短期
+      </label>
+    </view>
+  </view>
+  <view class="cell__wrp font-cell">
+    <view class="label">
+      <text class="font-label">描述</text>
+    </view>
+    <view class="value__wrp textarea-value">
+      <textarea bindinput="inputRemark" placeholder="填写项目描述…" name="textarea" class="textarea" />
+    </view>
+  </view>
+
+  <view class="submit__wrp">
+    <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">取消</view>
+    <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">确定</view>
+  </view>
+</view>
+
+<user-picker wx:if="{{isShowUserPicker}}" value="{{form.manager_ids}}" list="{{taskUser}}"
+  bindconfirm="userPickerConfirm" bindcancel="userPickerCancel"></user-picker>

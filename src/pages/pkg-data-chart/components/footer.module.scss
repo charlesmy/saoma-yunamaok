@@ -1,0 +1,25 @@
+.foot {
+    position: fixed;
+    bottom: calc(constant(safe-area-inset-bottom));
+    bottom: calc(env(safe-area-inset-bottom));
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.btn {
+    width: 50%;
+    line-height: 40px;
+    text-align: center;
+}
+
+.bar {
+    color: rgb(193, 39, 37);
+    background-color: rgb(110, 159, 214);
+}
+
+.line {
+    color: #fff;
+    background-color: rgb(211, 175, 85);
+}

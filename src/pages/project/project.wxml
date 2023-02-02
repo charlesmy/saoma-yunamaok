@@ -1,0 +1,56 @@
+<!--pages/project/project.wxml-->
+<wxs module="Project">
+function statusColor(status) {
+  if(!status){return ''}
+  var format = {
+    '1': 'stop',
+    '2': 'doing',
+    '3': 'success'
+  }
+  return format[status.toString()]
+}
+module.exports = {
+  statusColor: statusColor
+}
+</wxs>
+<view class="search__wrp">
+  <view class="scan__wrp">
+    <text class="iconfont icon-scanning"></text>
+  </view>
+  <view class="search">
+    <view class="iconfont icon-search"></view>
+    <input bindtap="inputKeyword" bindconfirm="inputConfirm" value="{{filter.keyword}}" type="text" class="s-input" placeholder="搜索项目" />
+    <view class="s-btn">{{projectListCount}}个项目</view>
+  </view>
+</view>
+
+<view wx:if="{{projectList.length}}" class="list__wrp">
+  <block wx:for="{{projectList}}" wx:key="id">
+    <view bindtap="tapItem" data-id="{{item.id}}" class="item__wrp" hover-class="hovercls2" hover-stay-time="180">
+      <image class="avatar" mode="aspectFit" src="{{item.members_pic}}"></image>
+      <view class="title__wrp">
+        <view class="t__wrp">
+          <text class="title">{{item.name}}</text>
+          <view>创建/审批：{{item.nick}}/{{item.audit_id_name}}</view>
+          <text class="t-after" style="display: none;">{{item.finish_task_count}}/{{item.all_task_count}}</text>
+        </view>
+        <text class="complete"><text class="iconfont icon-data-view"></text>完成率 {{item.finish_task_per}}   {{item.finish_task_count}}/{{item.all_task_count}}</text>
+      </view>
+      <view class="time__wrp">
+        <view class="status {{Project.statusColor(item.status)}}">
+          <text class="iconfont icon-stop status-icon"></text>
+          <text>{{statusFormat[item.status]}}</text>
+        </view>
+        <text class="begin">开始：{{item.start_time}}</text>
+        <text wx:if="{{item.end_time}}" class="end">结束：{{item.end_time}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:else class="empty-list">
+  <text>暂无数据</text>
+</view>
+
+<view bindtap="tapCreate" class="create__wrp" hover-class="hovercls" hover-stay-time="180">
+  <text class="iconfont icon-add"></text>
+</view>

@@ -1,0 +1,42 @@
+[
+    {
+        "x":"2022-11-12",
+        "total_jianshu":1,
+        "total_price":1
+    },
+    {
+        "x":"2022-11-13",
+        "total_jianshu":10,
+        "total_price":10
+    },
+    {
+        "x":"2022-11-14",
+        "total_jianshu":8,
+        "total_price":1
+    },
+    {
+        "x":"2022-11-15",
+        "total_jianshu":20,
+        "total_price":10
+    },
+    {
+        "x":"2022-11-16",
+        "total_jianshu":40,
+        "total_price": 20
+    },
+    {
+        "x":"2022-11-17",
+        "total_jianshu":10,
+        "total_price":10
+    },
+    {
+        "x":"2022-11-18",
+        "total_jianshu":1,
+        "total_price":0
+    },
+    {
+        "x":"2022-11-19",
+        "total_jianshu":22,
+        "total_price":23
+    }
+]

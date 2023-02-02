@@ -1,0 +1,28 @@
+.list {
+    margin-top: 10px;
+}
+
+.flag {
+    display: inline-block;
+    padding: 0 4px;
+    margin-right: 10px;
+    font-size: 10px;
+    color: rgb(247, 246, 246);
+    background-color: rgb(158, 205, 206);
+    border-radius: 4px;
+}
+
+.list :global(.nut-cell__maintitle) {
+    font-size:14px; 
+    color:rgb(30, 142, 225);
+}
+
+.list :global(.nut-cell-group__wrap) {
+    margin: 0;
+}
+
+.count {
+    margin-right: 10px;
+    font-size:12px; 
+    color:rgb(174, 170, 170); 
+}

@@ -1,0 +1,199 @@
+<!--pages/project/detail/detail.wxml-->
+<view class="tab__wrp">
+  <view bindtap="tapTab" data-idx="{{0}}" class="tab__item {{tabIdx===0?'selected':''}}">所有任务</view>
+  <view bindtap="tapTab" data-idx="{{3}}" class="tab__item {{tabIdx===3?'selected':''}}">详情</view>
+  <view bindtap="tapTab" data-idx="{{1}}" class="tab__item {{tabIdx===1?'selected':''}}">进展</view>
+  <view bindtap="tapTab" data-idx="{{2}}" class="tab__item {{tabIdx===2?'selected':''}}">日志</view>
+  <view bindtap="delProject" class="del"><text><text class="iconfont icon-shanchu"></text>删除</text></view>
+</view>
+<view wx:if="{{tabIdx===0}}" style="background: #f9f9f9;">
+  <view class="filter__wrp">
+    <view class="f__time">
+      <!-- <picker bindchange="bindPickerChange" mode="selector" value="{{idx}}" range="{{arr}}" header-text="排序方式">
+        <text class="iconfont icon-sorting"></text>
+        <text class="picker-content">按日期排序</text>
+        <text class="iconfont icon-arrow-down"></text>
+      </picker> -->
+    </view>
+    <view class="f__status">
+      <text class="f__status-label">{{taskListCount}}个任务</text>
+      <view>
+        <picker bindchange="statusPickerChange" mode="selector" value="{{idx}}" range="{{statusFormat}}"
+          header-text="排序方式">
+          <text class="picker-content2">{{statusFormat[taskFilter.status]}}</text>
+          <text class="iconfont icon-arrow-down"></text>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="list__wrp">
+    <block wx:if="{{taskList.length}}">
+       <block wx:for="{{taskList}}" wx:key="id">
+        <view bindtap="tapTask" class="item__wrp" data-id="{{item.id}}">
+          <view class="item__left">
+            <view class="number">
+              <text class="iconfont icon-task-filling" style="color:{{item.priorityColor?'#f21414':'#888'}};"></text>
+              <text class="num">NO.{{item.id}} {{item.client_ordernum}}</text>
+            </view>
+            <view class="desc">
+              <text>任务：{{item.name}}</text>
+            </view>
+          </view>
+          <view class="item__right">
+            <!-- <image src="https://img1.baidu.com/it/u=2203463189,2199945911&fm=26&fmt=auto" mode="aspectFill" class="avatar"></image> -->
+            <view class="date">创/负责:{{item.admin_user}}/{{item.execute_user}}</view>
+            <view class="date">进度:[{{statusFormat1[item.status]}}]</view>
+            <view class="date">
+              <!--<text wx:if="{{item.comments}}" class="iconfont icon-review1"></text>-->
+              <text>创建: {{item.createDate}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <view wx:else class="empty-list">
+      <text>暂无数据</text>
+    </view>
+  </view>
+</view>
+<view wx:elif="{{tabIdx===1}}">
+  <view class="filter-t__wrp">
+    <text>时间范围</text>
+    <view class="f-time-picker">
+      <picker class="time-picker" bindchange="bindchangeDate" mode="date" value="2021-09-26" fields="day"
+        header-text="开始时间">
+        <view class="">
+          2021/9/26
+        </view>
+      </picker>
+      <text>-</text>
+      <picker class="time-picker" bindchange="bindchangeDate" mode="date" value="2021-09-26" fields="day"
+        header-text="结束时间">
+        <view class="">
+          2021/9/26
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="btn-filter">
+    <text class="b">3天</text>
+    <text class="b">7天</text>
+    <text class="b">30天</text>
+  </view>
+  <view class="container">
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  </view>
+</view>
+<block wx:elif="{{tabIdx===2}}">
+  <view class="time-log__wrp">
+    <block wx:for="{{logList}}" wx:key="id">
+      <view class="t__item">
+        <view class="t__row1">
+          <view class="t__left"></view>
+          <view class="t__center">
+            <text class="iconfont icon-shizhongfill"></text>
+          </view>
+          <view class="t__right">{{item.date}}</view>
+        </view>
+        <view class="t__row2">
+          <view class="t__left"></view>
+          <view class="t__center">
+            <view class="line"></view>
+          </view>
+          <view class="t__right"></view>
+        </view>
+        <view class="t__row3">
+          <view class="t__left">{{item.time}}</view>
+          <view class="t__center">
+            <text class="iconfont icon-edit-square"></text>
+          </view>
+          <view class="t__right">{{item.realname}} {{item.remark}}</view>
+        </view>
+      </view>
+
+      <view wx:if="{{index!=logList.length-1}}" class="t__row2">
+        <view class="t__left"></view>
+        <view class="t__center">
+          <view class="line"></view>
+        </view>
+        <view class="t__right"></view>
+      </view>
+    </block>
+
+  </view>
+</block>
+<block wx:elif="{{tabIdx===3}}">
+  <view class="form__wrp">
+    <view class="cell__wrp">
+      <view class="label">
+        <text class="iconfont icon-order_fill"></text>
+      </view>
+      <view class="value__wrp">
+        <input value="{{form.name}}" bindinput="inputName" type="text" placeholder="项目名称" />
+      </view>
+    </view>
+    <view class="cell__wrp">
+      <view class="label">
+        <text class="iconfont icon-people_fill"></text>
+      </view>
+      <view class="value__wrp">
+        <picker bindchange="ReviewPickerChange" mode="selector" value="{{taskUserIdx}}" range="{{taskUser}}" range-key="nick" header-text="负责人">
+          <view class="picker-content {{taskUser[taskUserIdx]?'':'placeholder'}}">
+            {{taskUser[taskUserIdx].nick || '负责人'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="cell__wrp">
+      <view class="label">
+        <text class="iconfont icon-group_fill"></text>
+      </view>
+      <view class="value__wrp">
+        <view bindtap="tapUserPicker" class="picker">
+          <view class="picker-content {{managerUserNicks?'':'placeholder'}}">
+            {{managerUserNicks || '协助人(可多选)'}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cell__wrp">
+      <view class="label">
+        <text class="iconfont icon-time_fill"></text>
+      </view>
+      <view class="value__wrp">
+        <picker disabled="{{true}}" bindchange="bindchangeDate" mode="date" value="{{form.starttime}}" fields="day" header-text="开始时间">
+          <view class="picker-content {{form.endtime?'':'placeholder'}}">
+            {{form.starttime || '开始时间'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view wx:if="{{jieduan==0}}" class="cell__wrp">
+      <view class="label">
+        <text class="iconfont icon-time_fill"></text>
+      </view>
+      <view class="value__wrp">
+        <picker bindchange="bindchangeDate" mode="date" value="{{form.starttime}}" fields="day" header-text="结束时间">
+          <view class="picker-content {{form.endtime?'':'placeholder'}}">
+            {{form.endtime || '结束时间'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="cell__wrp font-cell">
+      <view class="label">
+        <text class="font-label">描述</text>
+      </view>
+      <view class="value__wrp textarea-value">
+        <textarea value="{{form.remark}}" bindinput="inputRemark" placeholder="填写项目描述…" name="textarea" class="textarea" />
+      </view>
+    </view>
+
+    <view class="submit__wrp">
+      <!-- <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">取消</view> -->
+      <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">确定</view>
+    </view>
+  </view>
+
+  <user-picker wx:if="{{isShowUserPicker}}" value="{{form.manager_ids}}" list="{{taskUser}}" bindconfirm="userPickerConfirm" bindcancel="userPickerCancel"></user-picker>
+</block>

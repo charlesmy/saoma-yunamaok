@@ -1,0 +1,67 @@
+
+.container {
+    margin-top: 2px;
+    background-color: rgb(245, 245, 249);
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 49%;
+    height: 60px;
+    padding: 0;
+    font-size: 14px;
+    border: 1px solid rgb(210, 206, 206);
+}
+
+.title {
+    font-size: 14px;
+    color: rgb(111, 107, 107);
+}
+
+.line {
+    font-size: 18px;
+}
+
+.jian {
+    margin-right: 4px;
+    color: rgb(56, 179, 130);
+}
+
+.za {
+    margin-left: 4px;
+    color: rgba(30, 142, 225, 1);
+}
+
+.money {
+    font-size: 18px;
+    color: rgb(195, 38, 38);
+}
+
+.monthSum {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 12px;
+    margin-top: 2px;
+    background-color: rgb(245, 245, 249);
+    border: 1px solid rgb(210, 206, 206);
+}
+
+.monthSum .jian,
+.monthSum .za,
+.monthSum .money {
+    font-size: 13px;
+}
+
+.monthSum .title {
+    margin-right: 4px;
+}

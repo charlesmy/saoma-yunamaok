@@ -1,0 +1,41 @@
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.cellCount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cellType{
+  display: flex;
+}
+
+.canuse {
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  margin: 0 4px;
+  font-size: 10px;
+  line-height: 20px;
+  color: rgb(38, 159, 83);
+  text-align: center;
+  background: rgb(231, 245, 213);
+  border-radius: 4px;
+}
+
+.cannotuse {
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  margin: 0 4px;
+  font-size: 10px;
+  line-height: 20px;
+  color: rgb(193, 39, 37);
+  text-align: center;
+  background: rgb(238, 210, 210);
+  border-radius: 4px;
+}

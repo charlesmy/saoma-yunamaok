@@ -1,0 +1,79 @@
+<!--pages/task/task.wxml-->
+<view class="top__wrp">
+  <view class="tab__wrp">
+    <view bindtap="tapTab" data-idx="{{0}}" class="tab__item {{filter.type===0?'selected':''}}">
+    待审批(<text class="countarr">{{countarr[0]}}</text>)</view>
+    <view bindtap="tapTab" data-idx="{{1}}" class="tab__item {{filter.type===1?'selected':''}}">已审未开始(<text class="countarr">{{countarr[1]}}</text>)</view>
+    <view bindtap="tapTab" data-idx="{{2}}" class="tab__item {{filter.type===2?'selected':''}}">进行中(<text class="countarr">{{countarr[2]}}</text>)</view>
+  </view>
+</view>
+<view class="top__wrp">
+  <view class="tab__wrp">
+    <view bindtap="tapTab" data-idx="{{3}}" class="tab__item {{filter.type===3?'selected':''}}">已完成({{countarr[3]}})</view>
+    
+    <view bindtap="tapTab" data-idx="{{4}}" alt="22222" class="tab__item {{filter.type===4?'selected':''}}">与我相关({{countarr[4]}})</view>
+    <view  data-idx="{{2}}" class="tab__item {{filter.type===5?'selected':''}}"> </view>
+  </view>
+  <view bindtap="tapNotice" class="notice__wrp" hover-class="hovercls" hover-stay-time="180">
+    <text class="iconfont icon-notification"></text>
+    <view wx:if="{{not_read_count>0}}" class="notice-number">{{not_read_count}}</view>
+  </view>
+</view>
+
+<view class="search__wrp">
+    <!--<view class="scan__wrp">
+      <text class="iconfont icon-scanning"></text>
+    </view>-->
+    <view class="search">
+      <view class="iconfont icon-search"></view>
+      <input bindtap="inputKeyword" bindconfirm="inputConfirm" value="{{filter.keyword}}" type="text" class="s-input" placeholder="订单号/任务标题 按回车搜索" />
+      <view class="s-btn">总{{allTaskCount}}个任务</view>
+    </view>
+</view>
+<block wx:if="{{hasLogin}}">
+  <block wx:if="{{bindStatus}}">
+    <view wx:if="{{taskList.length}}" class="list__wrp">
+      <block wx:for="{{taskList}}" wx:key="id">
+        <view class="item__wrp">
+          <view class="item__left">
+            <view class="number">
+              <text class="iconfont icon-task-filling" style="color:{{item.priorityColor?'#f21414':'#888'}};"></text>
+              <text class="num">NO.{{item.id}} {{item.client_ordernum}}</text>
+            </view>
+            <view class="desc" bindtap="tapItem" data-id="{{item.id}}">
+              <text>任务：{{item.name}}</text>
+            </view>
+          </view>
+          <view class="item__right">
+            <!-- <image src="https://img1.baidu.com/it/u=2203463189,2199945911&fm=26&fmt=auto" mode="aspectFill" class="avatar"></image> -->
+            <view class="date">创/负责:{{item.admin_user}}/{{item.execute_user}}</view>
+            <view class="date">进度:[{{statusFormat1[item.status]}}]</view>
+            <view class="date">
+              <!--<text wx:if="{{item.comments}}" class="iconfont icon-review1"></text>-->
+              <text>创建: {{item.createDate}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view wx:else class="empty-list">
+      <text>暂无数据</text>
+    </view>
+    <view bindtap="tapCreate" class="create__wrp" hover-class="hovercls2" hover-stay-time="180">
+      <text class="iconfont icon-add"></text>
+    </view>
+  </block>
+  <view wx:else class="login__wrp">
+    <text bindtap="bind">暂无数据</text>
+  </view>
+</block>
+<view wx:else>
+  <view class="login__wrp">
+    <text bindtap="login">暂无数据</text>
+  </view>
+</view>
+
+<!-- 编辑任务列表弹窗 -->
+<!-- <view class="e-t-dialog__wrp">
+  <view class="e-t-dialog"></view>
+</view> -->

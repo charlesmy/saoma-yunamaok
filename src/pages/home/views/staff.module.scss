@@ -1,0 +1,103 @@
+.item {
+    display: flex;
+}
+
+.salary {
+    width: 361px;
+    height: 188px;
+    padding: 0;
+    margin: 10px auto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 23px;
+    text-align: center;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 6px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoLeft {
+    box-sizing: border-box;
+    width: 50%;
+    padding-top: 20px;
+    padding-left: 50px;
+    text-align: left;
+}
+
+.infoRight {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 10px 16px 0 0;
+    text-align: right;
+}
+
+.moneyLabel { 
+    font-size: 14px; 
+    color:rgba(238,234,234,1); 
+}
+
+.moneyValue {
+    position: relative;
+    margin-top: 12px;
+    font-size: 20px; 
+    color:rgb(245, 183, 48);
+
+}
+
+.moneyIcon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-101%);
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.username,
+.userrole {
+    font-size:12px;
+    line-height: 1; 
+    color:rgb(218, 220, 223);
+    text-align: right;
+}
+
+.userrole {
+    margin-top: 4px;
+}
+
+.list {
+    display: flex;
+    margin-top: 30px;
+}
+
+.listItem {
+    flex: 1;
+}
+
+.listItemLabel {
+    display: block;
+    font-size: 14px; 
+    color:rgb(218, 220, 223);
+}
+
+.listItemValue {
+    font-size: 16px; 
+    color:rgb(218, 220, 223);
+}
+
+.salaryChart {
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    padding: 0 20px;
+}

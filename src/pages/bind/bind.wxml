@@ -1,0 +1,19 @@
+<!--pages/bind/bind.wxml-->
+<view class="form__wrp">
+
+  <view class="title">绑定米莫系统账号</view>
+
+  <view class="cell">
+    <text class="label">账号</text>
+    <input value="{{form.mimo_username}}" bindinput="handleInput" data-key="mimo_username" class="value-input" type="text" placeholder="请输入账号" />
+  </view>
+
+  <view class="cell">
+    <text class="label">密码</text>
+    <input value="{{form.password}}" bindinput="handleInput" data-key="password" class="value-input" type="password" placeholder="请输入密码" />
+  </view>
+</view>
+<view class="submit__wrp">
+    <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">取消</view>
+    <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">绑定</view>
+  </view>

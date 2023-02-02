@@ -1,0 +1,42 @@
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.fixed {
+  position: sticky;
+  top: 0;
+}
+
+.box {
+  background-color: #fff;
+}
+
+.box :global(.nut-table) {
+  display: block;
+  width: auto;
+  overflow-x: scroll;
+}
+
+.box :global(.nut-table__main) {
+  width: 134%;
+}
+
+.box :global(.nut-table__main__head__tr) {
+  background: rgb(242, 236, 236);
+}
+
+.box :global(.nut-table__main__head__tr__th),
+.box :global(.nut-table__main__body__tr__td) {
+  padding: 4px 10px;
+  font-size: 12px;
+  color:rgb(169, 169, 169);
+  border-bottom: 1px solid #ececec;
+}
+
+.box :global(.nut-table__main__head__tr__th) {
+  color: #000;
+}
+

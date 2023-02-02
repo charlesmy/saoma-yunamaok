@@ -1,0 +1,128 @@
+{
+  "id": "3714549",
+  "name": "mimo_task",
+  "font_family": "iconfont-v2",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11459720",
+      "name": "人民币",
+      "font_class": "renminbi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "201557",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "3456457",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "8768040",
+      "name": "大喇叭",
+      "font_class": "dalaba",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1440394",
+      "name": "修改资料",
+      "font_class": "xiugaiziliao",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "4347518",
+      "name": "icon_发布",
+      "font_class": "icon_fabu",
+      "unicode": "eb88",
+      "unicode_decimal": 60296
+    },
+    {
+      "icon_id": "6255762",
+      "name": "查询业务",
+      "font_class": "chaxunyewu",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "11372685",
+      "name": "扫一扫",
+      "font_class": "saoyisao",
+      "unicode": "e8b5",
+      "unicode_decimal": 59573
+    },
+    {
+      "icon_id": "11372715",
+      "name": "问卷",
+      "font_class": "wenjuan",
+      "unicode": "e8bb",
+      "unicode_decimal": 59579
+    },
+    {
+      "icon_id": "13168573",
+      "name": "员工",
+      "font_class": "yuangong",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "13638712",
+      "name": "图表",
+      "font_class": "tubiao",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "17066724",
+      "name": "修改密码",
+      "font_class": "xiugaimima",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "17783573",
+      "name": "文档编辑",
+      "font_class": "wendangbianji",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "18211610",
+      "name": "替换",
+      "font_class": "tihuan",
+      "unicode": "e7d1",
+      "unicode_decimal": 59345
+    },
+    {
+      "icon_id": "21028963",
+      "name": "生产进度",
+      "font_class": "shengchanjindu",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "21732920",
+      "name": "line-file edit（文档编辑）",
+      "font_class": "line-fileeditwendangbianji",
+      "unicode": "e736",
+      "unicode_decimal": 59190
+    },
+    {
+      "icon_id": "24101161",
+      "name": "品质管理",
+      "font_class": "pinzhiguanli",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

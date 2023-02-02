@@ -1,0 +1,212 @@
+<!--pages/task/detail/detail.wxml-->
+<view class="tab__wrp">
+  <view bindtap="tapTab" data-idx="{{0}}" class="tab__item {{tabIdx===0?'selected':''}}">详情</view>
+  <view bindtap="tapTab" data-idx="{{1}}" class="tab__item {{tabIdx===1?'selected':''}}">日志</view>
+  <view bindtap="delTask" class="del"><text><text class="iconfont icon-shanchu"></text>删除</text></view>
+</view>
+<block wx:if="{{tabIdx==0}}">
+  <view class="row__wrp">
+    <view class="picker">
+      <picker disabled="{{isNotCanAlter}}" bindchange="projectPickerChange" mode="selector" value="{{projectListIdx}}"
+        range="{{projectList}}" range-key="name" header-text="项目列表">
+        <view class="picker-content {{projectListIdx>=0?'':'placeholder'}}">
+          {{projectList[projectListIdx].name || '项目名称'}}
+        </view>
+      </picker>
+      <text class="iconfont icon-arrow-down arrowdown"></text>
+    </view>
+  </view>
+  <view class="row__wrp">
+    <view class="input__wrp">
+      <input disabled="{{isNotCanAlter}}" value="{{form.name}}" data-key="name" bindinput="inputController"
+        placeholder="任务名称" type="text" />
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+  </view>
+  <view class="content__wrp">
+  <textarea bindinput="textareaInput" placeholder="任务描述" name="textarea" value="{{form.content}}" class="textarea1" />
+</view>
+  <view class="row__wrp">
+    <view class="input__wrp col-1">
+      <input disabled="{{isNotCanAlter}}" value="{{form.client_ordernum}}" data-key="client_ordernum"
+        bindinput="inputController" placeholder="订单号" type="text" />
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+    <view class="input__wrp">
+      <input disabled="{{isNotCanAlter}}" value="{{form.order_quantity}}" data-key="order_quantity"
+        bindinput="inputController" placeholder="数量：件" type="number" />
+    </view>
+    <view class="input__wrp">
+      <input disabled="{{isNotCanAlter}}" value="{{form.process_price}}" data-key="process_price"
+        bindinput="inputController" placeholder="单价：元" type="digit" />
+    </view>
+  </view>
+  <view class="priority__wrp">
+    <text>重要性：</text>
+    <view class="checkbox">
+      <view class="row">
+        <label bindtap="checkController" data-key="priority" data-value="2" class="radio">
+          <radio value="2" checked="{{form.priority<4}}" disabled="{{isNotCanAlter}}" color="#169ef4">
+            <text class="iconfont icon-task-filling priority1"></text>
+            <text space="emsp">一般 </text>
+          </radio>
+        </label>
+        <label bindtap="checkController" data-key="priority" data-value="4" class="radio">
+          <radio value="4" checked="{{form.priority>=4}}" disabled="{{isNotCanAlter}}" color="#169ef4">
+            <text class="iconfont icon-task-filling priority3"></text>
+            <text space="emsp">重要 </text>
+          </radio>
+        </label>
+      </view>
+    </view>
+  </view>
+  <view class="row__wrp">
+    <view class="picker">
+      <picker disabled="{{isNotCanAlter}}" bindchange="executePickerChange" mode="selector" value="{{execute_uidIdx}}"
+        range="{{taskUser}}" range-key="nick" header-text="负责人">
+        <view class="picker-content {{execute_uidIdx>=0?'':'placeholder'}}">
+          {{execute_uidIdx>=0?'负责人：'+taskUser[execute_uidIdx].nick:'负责人'}}
+        </view>
+      </picker>
+      <text class="iconfont icon-shoucang1 requirement"></text>
+    </view>
+    <view class="picker">
+      <picker disabled="{{true}}" bindchange="executePickerChange" mode="selector" value="{{admin_idIdx}}"
+        range="{{taskUser}}" range-key="nick" header-text="创建者">
+        <view class="picker-content {{admin_idIdx>=0?'':'placeholder'}}">
+          {{admin_idIdx>=0?'创建者：'+taskUser[admin_idIdx].nick:'创建者'}}
+        </view>
+      </picker>
+      <!-- <text class="iconfont icon-shoucang1 requirement"></text> -->
+    </view>
+    <!-- <view class="user-picker">
+    <view bindtap="tapUserPicker" class="picker-content {{join_admin_nicks?'':'placeholder'}}">
+      {{join_admin_nicks || '协助人'}}
+      </view>
+      <text class="iconfont icon-arrow-down arrowdown"></text>
+    </view> -->
+  </view>
+  <view class="row__wrp">
+    <view class="picker">
+      <picker disabled="{{true}}" range-key="nick" header-text="创建者">
+        <view class="picker-content {{admin_idIdx>=0?'':'placeholder'}}">
+          协助人：{{form.join_admins}}
+        </view>
+      </picker>
+      </view>
+  </view>
+  <view class="reality__wrp">
+    <view class="r-lable">实际情况</view>
+    <view class="r-input__wrp">
+      <view class="r-input">
+        <text>实际件数：</text>
+        <input disabled="{{isNotCanAlter}}" value="{{form.real_order_quantity}}" data-key="real_order_quantity"
+        bindinput="inputController" placeholder="" type="digit" />
+      </view>
+      <view class="r-input">
+        <text>实际单价：</text>
+        <input disabled="{{isNotCanAlter}}" value="{{form.real_process_price}}" data-key="real_process_price"
+        bindinput="inputController" placeholder="" type="digit" />
+      </view>
+    </view>
+  </view>
+  <view class="pic__wrp">
+    <block>
+      <view wx:if="{{task_annex_list.length||tempFilePaths.length}}" class="img__wrp">
+        <image wx:for="{{task_annex_list}}" wx:key="item" src="{{REALM + item.path}}" data-src="{{REALM + item.path}}" bindtap="showMask" class="img" mode="aspectFill"></image>
+        <image wx:for="{{tempFilePaths}}" wx:key="item" src="{{item}}" class="img" mode="aspectFill"></image>
+      </view>
+      <view wx:else class="pic-tip">上传照片</view>
+    </block>
+    <view class="pic-btn__wrp">
+      <view bindtap="choosePic" class="pic-btn">上传</view>
+      <!-- <view class="pic-btn">拍照</view> -->
+    </view>
+  </view>
+    <!-- 浮层 -->
+ <view class="b1" hidden="{{annex_show_flag}}" bindtap="closeMask">
+   <view class="b2">
+    <image src='{{annex_src}}' />
+    </view>
+     <view class="t_w">
+        <cover-view class="t_image" bindtap="closeMask" style="color: white;">
+          X
+        </cover-view>
+     </view>
+ </view>
+  <view class="submit__wrp">
+    <view bindtap="alter" class="confirm" hover-class="hovercls" hover-stay-time="180">保存修改</view>
+    <block wx:if="{{form.audit_status==0 && profile.userInfo.admin_id==form.audit_uid}}">
+      <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">审核通过</view>
+      <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">任务驳回</view>
+    </block>
+  </view>
+  <view>
+  </view>
+  <view class="weui-cell weui-cell_select" hidden="{{activeIndex == 1}}">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">任务进度设置：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="rateChange0" value="{{form.task_status}}" mode="selector" range="{{taskStatus}}">
+        <view class="weui-select weui-select_in-select-after weui-cell__ft">{{taskStatus_txt}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="comments__wrp">
+    <view class="send">
+      <input value="{{inputComment}}" data-key="order_quantity" bindinput="inputComment" placeholder="输入评论内容"
+        type="text" />
+      <view bindtap="sendComments" class="btn">写评论</view>
+    </view>
+    <scroll-view scroll-y class="comments">
+      <block wx:for="{{commentList}}" wx:key="id">
+       <view class="cmm__wrp">{{item.realname}} {{item.time}}</view>
+        <view class="msg__wrp">
+          <image src="{{item.headimgurl||'/images/head.png'}}" class="avatar"></image>
+          <view class="msg">{{item.content}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  
+  </view>
+  
+</block>
+<block wx:else>
+  <view class="time-log__wrp">
+    <block wx:for="{{logList}}" wx:key="id">
+      <view class="t__item">
+        <view class="t__row1">
+          <view class="t__left"></view>
+          <view class="t__center">
+            <text class="iconfont icon-shizhongfill"></text>
+          </view>
+          <view class="t__right">{{item.date}}</view>
+        </view>
+        <view class="t__row2">
+          <view class="t__left"></view>
+          <view class="t__center">
+            <view class="line"></view>
+          </view>
+          <view class="t__right"></view>
+        </view>
+        <view class="t__row3">
+          <view class="t__left">{{item.time}}</view>
+          <view class="t__center">
+            <text class="iconfont icon-edit-square"></text>
+          </view>
+          <view class="t__right">{{item.realname}} {{item.remark}}</view>
+        </view>
+      </view>
+
+      <view wx:if="{{index!=logList.length-1}}" class="t__row2">
+        <view class="t__left"></view>
+        <view class="t__center">
+          <view class="line"></view>
+        </view>
+        <view class="t__right"></view>
+      </view>
+    </block>
+
+  </view>
+</block>

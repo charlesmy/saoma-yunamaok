@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "user-picker": "../../../components/user-picker/user-picker"
+  },
+  "navigationBarTitleText": "项目编辑"
+}
