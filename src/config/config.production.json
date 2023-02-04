@@ -1,4 +1,4 @@
 {
     "RUN_ENV": "prod",
-    "BASE_API": "http://www.mimo-pro.com/wechat.php/miniprogram"
+    "BASE_API": "http://www.mimo-dev.com/wechat.php/miniprogram"
 }

@@ -6,6 +6,7 @@ page {
   padding: 0 36rpx;
 }
 .title {
+  text-align: center;
   margin: 80rpx 0 100rpx;
   font-size: 48rpx;
   font-weight: bold;
