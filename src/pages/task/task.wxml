@@ -1,4 +1,5 @@
 <!--pages/task/task.wxml-->
+<block wx:if="{{ roleID !=0 }}">
 <view class="top__wrp">
   <view class="tab__wrp">
     <view bindtap="tapTab" data-idx="{{0}}" class="tab__item {{filter.type===0?'selected':''}}">
@@ -73,6 +74,7 @@
   </view>
 </view>
 
+</block>
 <!-- 编辑任务列表弹窗 -->
 <!-- <view class="e-t-dialog__wrp">
   <view class="e-t-dialog"></view>

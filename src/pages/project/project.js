@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    roleID: 0,
     hasLogin: false,
     bindStatus: 0,
     filter: {
@@ -24,13 +25,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    console.log('project onLoad');
-    // await app.checkAuthSession()
-    // console.log(app.profile);
-    // this.setData({
-    //   hasLogin: app.profile.hasLogin,
-    //   bindStatus: app.profile.bindStatus
-    // })
+     this.setData({
+      hasLogin: app.profile.hasLogin,
+      bindStatus: app.profile.bindStatus,
+       roleID: app.profile.roleID
+     })
   },
   inputKeyword(e) {
     const {value} = e.detail
@@ -87,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(app.profile.hasLogin && app.profile.bindStatus) {
+    if(app.profile.hasLogin && app.profile.bindStatus && app.profile.roleID) {
       this.setData({
         'filter.page': 1
       })

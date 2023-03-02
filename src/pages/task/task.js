@@ -11,6 +11,7 @@ Page({
     not_read_count: 0,
     hasLogin: false,
     bindStatus: 0,
+    roleID: 0,
     filter: {
       type: 4,
       status: 1,
@@ -38,9 +39,12 @@ Page({
     console.log('task onLoad');
     await app.checkAuthSession()
     console.log(app.profile);
+    console.log(123333);
+    console.log(app.profile.roleID);
     this.setData({
       hasLogin: app.profile.hasLogin,
-      bindStatus: app.profile.bindStatus
+      bindStatus: app.profile.bindStatus,
+      roleID: app.profile.roleID
     })
   },
   getUserTaskMessageList() {
@@ -126,7 +130,8 @@ Page({
     app.login(() => {
       this.setData({
         hasLogin: app.profile.hasLogin,
-        bindStatus: app.profile.bindStatus
+        bindStatus: app.profile.bindStatus,
+        roleID: app.profile.roleID
       })
       this.getTaskList()
     })
@@ -154,7 +159,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(app.profile.hasLogin && app.profile.bindStatus) {
+    console.log()
+    if(app.profile.hasLogin && app.profile.bindStatus && app.profile.roleID) {
       this.setData({
         'filter.page': 1
       })

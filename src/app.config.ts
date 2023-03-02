@@ -6,6 +6,7 @@ export default defineAppConfig({
         'pages/task/task',
         'pages/project/project',
         'pages/person/person',
+        'pages/person/edit/edit',
         'pages/project/edit/edit',
         'pages/task/notice/notice',
         'pages/project/detail/detail',

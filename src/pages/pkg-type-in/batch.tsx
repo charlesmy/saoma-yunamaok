@@ -82,10 +82,10 @@ function Batch() {
     ]
 
     const onConfirm = useLockFn(async () => {
-        if (isNull(num)) {
+    /*    if (isNull(num)) {
             Taro.showToast({icon: 'none', title: '请输入数量'})
             return
-        }
+        }*/
         if (selectIds.length <= 0) {
             Taro.showToast({icon: 'none', title: '请选择扎号'})
             return
@@ -113,11 +113,14 @@ function Batch() {
     })
 
     const onSelectAll = async () => {
+
         const cur = gongxuList.map(item => item.zhahao)
+
         if (selectIds.length > 0 && cur.length === selectIds.length) {
             setSelectIds([])
             setNum('')
         } else {
+            console.log(cur)
             setSelectIds(cur)
             const count = gongxuList.reduce((pre, current) => {
                 pre += current.totalCount - current.leave
@@ -135,6 +138,7 @@ function Batch() {
     }
 
     const onSwitchChange = (item: API.TypeIn.BatchScanDetail.GongxuList, bool: boolean) => {
+        console.log(88888888888888888)
         if (bool) {
             setSelectIds([...selectIds, item.zhahao])
             setNum(String(Number(num) + (item.totalCount - item.leave)))

@@ -2,10 +2,18 @@
 // import {useEffect} from 'react'
 import {useMsgCount} from '@/src/stores/msg-count'
 import {useDidShow} from '@tarojs/taro'
+
+//分享转发
+import Taro from '@tarojs/taro'
+import {useEffect} from  'react'
+import {useShareAppMessage} from '@tarojs/taro'
+
 import {useUser} from '@/src/stores/user'
 
 import {useBanner} from './banner'
 import {useEmployeeInfo} from './employee-info'
+
+
 
 export function useInit() {
     const getUser = useUser(state => state.getUser)
@@ -17,9 +25,15 @@ export function useInit() {
     //     Promise.all([onBannerLoad(), onLoadEmployeeInfo(), msgCount()])
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, [])
-
     useDidShow(() => {
         getUser(false)
         Promise.all([onBannerLoad(), onLoadEmployeeInfo(), msgCount()])
     })
+    useEffect(() => {
+        Taro.showShareMenu({
+            withShareTicket: true
+        })
+    }, [])
+
+
 }

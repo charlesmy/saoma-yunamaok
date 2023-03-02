@@ -1,0 +1,14 @@
+<!--pages/task/edit/edit.wxml-->
+<view class="form__wrp">
+  <view>
+    <view class="row__wrp">
+      <view class="input__wrp">
+        <input value=""  bindinput="inputName"  data-key="password"  placeholder="请输入要改的密码" type="password" />
+      </view>
+    </view>
+  </view>
+  <view class="submit__wrp">
+    <view bindtap="cancel" class="cancel" hover-class="hovercls" hover-stay-time="180">取消</view>
+    <view bindtap="submit" class="confirm" hover-class="hovercls" hover-stay-time="180">确定</view>
+  </view>
+</view>

@@ -26,5 +26,4 @@ function TableList({list = [], ...rest}: Props) {
         </View>
     )
 }
-
 export default React.memo(TableList)

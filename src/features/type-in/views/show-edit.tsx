@@ -16,13 +16,11 @@ import {getProcessList} from '../api/index'
 interface Props {
     _onClose?: CloseFunc
 }
-
 function Edit(props: Props) {
     const [orderId, setOrderId] = useState('')
     const [zhahao, setZhahao] = useState('')
     const [list, setList] = useState<API.TypeIn.GetProcessList.Data[]>([])
     const [gongxu, setGongxu] = useState('')
-
     useEffect(() => {
         if (orderId) {
             getProcessList({orderNum: orderId}).then(res => {
@@ -34,17 +32,14 @@ function Edit(props: Props) {
             setList([])
         }
     }, [orderId])
-
     const onDestroy = (res: Result<string>) => {
         if (typeof props._onClose === 'function') {
             props._onClose(res)
         }
     }
-
     const onClose = () => {
         onDestroy({code: -1, message: '关闭弹窗'})
     }
-
     const onConfirm = () => {
         if (isNull(orderId)) {
             Taro.showToast({icon: 'none', title: '请先填写订单'})
@@ -57,7 +52,6 @@ function Edit(props: Props) {
         goRoute(Pages.pages_pkg_type_in_edit, {orderNum: orderId, processId: gongxu, zhahao})
         onDestroy({code: 0, message: '', data: ''})
     }
-
     const onScan = async () => {
         const res = await getScanResult()
         if (res?.result) {
@@ -70,9 +64,7 @@ function Edit(props: Props) {
             setZhahao(zh)
         }
     }
-
     const label = list.find(i => String(i.id) === gongxu)?.process_name || '选择工序'
-
     return (
         <View className="ba__dialog__mask">
             <View className={styles.container}>

@@ -13,6 +13,8 @@ module.exports = {
   statusColor: statusColor
 }
 </wxs>
+
+<block wx:if="{{ roleID !=0 }}">
 <view class="search__wrp">
   <view class="scan__wrp">
     <text class="iconfont icon-scanning"></text>
@@ -54,3 +56,5 @@ module.exports = {
 <view bindtap="tapCreate" class="create__wrp" hover-class="hovercls" hover-stay-time="180">
   <text class="iconfont icon-add"></text>
 </view>
+
+</block>

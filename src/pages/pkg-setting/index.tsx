@@ -79,7 +79,7 @@ function Index() {
                     linkSlot={
                         <Switch
                             checked={data?.remeber_process_bool === 1}
-                            change={value => onChange(value, 'remeber_process_bool')}
+                            onChange={value => onChange(value, 'remeber_process_bool')}
                         />
                     }
                 />
@@ -88,7 +88,7 @@ function Index() {
                     linkSlot={
                         <Switch
                             checked={data?.bind_process_commit_bool === 1}
-                            change={value => onChange(value, 'bind_process_commit_bool')}
+                            onChange={value => onChange(value, 'bind_process_commit_bool')}
                         />
                     }
                 />
@@ -97,7 +97,7 @@ function Index() {
                     linkSlot={
                         <Switch
                             checked={data?.batch_scan_bool === 1}
-                            change={value => onChange(value, 'batch_scan_bool')}
+                            onChange={value => onChange(value, 'batch_scan_bool')}
                         />
                     }
                 />
@@ -112,7 +112,7 @@ function Index() {
                             />
                             <Switch
                                 checked={data?.close_quality_bool === 1}
-                                change={value => onChange(value, 'close_quality_bool')}
+                                onChange={value => onChange(value, 'close_quality_bool')}
                             />
                         </View>
                     }
@@ -121,9 +121,9 @@ function Index() {
                     title="品质默认录入疵品类型"
                     linkSlot={
                         <View className={styles.cellType}>
-                            <Switch checked={data?.fix_bool === 1} change={value => onChange(value, 'fix_bool')} />
+                            <Switch checked={data?.fix_bool === 1} onChange={value => onChange(value, 'fix_bool')} />
                             <Text className={styles.canuse}>可返修</Text>
-                            <Switch checked={data?.bad_bool === 1} change={value => onChange(value, 'bad_bool')} />
+                            <Switch checked={data?.bad_bool === 1} onChange={value => onChange(value, 'bad_bool')} />
                             <Text className={styles.cannotuse}>疵品</Text>
                         </View>
                     }
@@ -131,7 +131,7 @@ function Index() {
                 <Cell
                     title="工资详情设为首页"
                     linkSlot={
-                        <Switch checked={data?.salary_bool === 1} change={value => onChange(value, 'salary_bool')} />
+                        <Switch checked={data?.salary_bool === 1} onChange={value => onChange(value, 'salary_bool')} />
                     }
                 />
             </CellGroup>

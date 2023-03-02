@@ -35,7 +35,6 @@ function Manual() {
     useDidShow(() => {
         Taro.setNavigationBarTitle({title: isNull(params.jp_number) ? '工菲录入' : '代人录菲'})
     })
-
     useEffect(() => {
         setParams({orderNum: params.orderId, zhahao: params.zhahao})
         onLoad().then(res => {
@@ -68,20 +67,21 @@ function Manual() {
         {id: '5', name: '颜色： ', value: data?.dress_color || ''},
         {id: '6', name: '床号： ', value: data?.chuanghao || ''},
         {id: '7', name: '尺码： ', value: data?.size_name || ''},
-        {id: '8', name: '数量： ', value: data?.jianshu || ''},
+        {id: '8', name: data?.total_name, value: data?.jianshu || ''},
     ]
 
     const onConfirm = useLockFn(async () => {
-        if (isNull(num)) {
+  /*      if (isNull(num)) {
             Taro.showToast({icon: 'none', title: '请输入数量'})
             return
-        }
+        }*/
+        console.log(ids);
         const strProcessIds = Object.keys(ids).filter(cur => !!ids[cur])
+        console.log(strProcessIds);
         if (strProcessIds.length <= 0) {
             Taro.showToast({icon: 'none', title: '请先选择工序'})
             return
         }
-
         const res = await addScan({
             orderNum: params.orderId,
             zhahao: params.zhahao,

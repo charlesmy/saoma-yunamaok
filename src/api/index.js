@@ -4,10 +4,10 @@ const config = {
     release: false,
 }
 // const REALM = config.release ? 'https://www.020mimo.com' : 'http://mimo.cc'
-const REALM = config.release ? 'https://www.020mimo.com' : 'http://www.mimo-dev.com'
+const REALM = config.release ? 'https://www.020mimo.com' : 'https://www.020mimo.com'
 const URL = config.release
     ? 'https://www.020mimo.com/wechat.php/miniprogram/TaskApi/'
-    : 'http://www.mimo-dev.com/wechat.php/miniprogram/TaskApi/'
+    : 'https://www.020mimo.com/wechat.php/miniprogram/TaskApi/'
 // const URL = config.release
 //     ? 'https://www.020mimo.com/wechat.php/miniprogram/TaskApi/'
 //     : 'http://mimo.cc/wechat.php/miniprogram/TaskApi/'

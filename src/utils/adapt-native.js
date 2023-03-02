@@ -32,6 +32,7 @@ export function useAdaptNative() {
             userInfo: null,
             userProfile: null,
             hasLogin: false,
+            roleID: 0,
         }
 
         app.checkAuthAlter = function (admin_id) {
@@ -54,6 +55,7 @@ export function useAdaptNative() {
                             this.profile.bindStatus = data.bindStatus
                             this.profile.userInfo = data.userInfo
                             this.profile.hasLogin = true
+                            this.profile.roleID = data.userInfo.roleID
                             wx.setStorageSync('profile', this.profile)
                             callback && callback()
                         })
@@ -80,6 +82,7 @@ export function useAdaptNative() {
                             this.profile.bindStatus = data.bindStatus
                             this.profile.userInfo = data.userInfo
                             this.profile.hasLogin = true
+                            this.profile.roleID = data.userInfo.roleID
                             wx.setStorageSync('profile', this.profile)
                             callback && callback()
                         })
@@ -113,6 +116,7 @@ export function useAdaptNative() {
                                     this.profile.bindStatus = data.bindStatus
                                     this.profile.userInfo = data.userInfo
                                     this.profile.hasLogin = true
+                                    this.profile.roleID = data.userInfo.roleID
                                     wx.setStorageSync('profile', this.profile)
                                     // wx.showToast({title: '登录成功'})
                                     callback && callback()

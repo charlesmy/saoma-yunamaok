@@ -24,7 +24,7 @@ Page({
         reqPost('bindMimoAccount', this.data.form).then(res => {
           app.code2Login2(() => {
             wx.reLaunch({
-              url: '/pages/task/task',
+              url: '/pages/home/index',
             })
           })
           wx.showToast({

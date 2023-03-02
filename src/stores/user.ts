@@ -5,6 +5,7 @@ import request from '@/src/network'
 import Taro from '@tarojs/taro'
 import {isNull} from '@/src/utils/index'
 import {API} from '@/src/types/index'
+import {goRoute, Pages} from "@/src/utils/routes";
 
 /**
  * 其他地方不要也不允许直接使用这个值，获取用户信息请使用getSigin方法
@@ -44,6 +45,9 @@ export const useUser = create<State>((set, get) => ({
         if (res.code === 0) {
             Taro.setStorageSync(StorageUserKey, res.data)
             set({user: {...get().user, ...res.data}})
+        }else{
+            let url: string = '/pages/person/person'
+            Taro.redirectTo({url})
         }
         set({isLoading: false, response: res})
         reqList.forEach(fn => fn(res))

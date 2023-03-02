@@ -48,7 +48,9 @@ function List(props: Props) {
                                     <Text className={styles.count}>
                                         【{item.leave}/{item.totalCount}】
                                     </Text>
-                                    <Switch change={bool => onToggle(item, bool)} checked={!!ids[item.id]} />
+                                    <Switch onChange={bool => {
+                                        onToggle(item, bool)}} 
+                                    defaultChecked={!!ids[item.id]} />
                                 </>
                             }
                         />
